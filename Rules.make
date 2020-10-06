@@ -6,7 +6,8 @@ ARCH=riscv
 IFLAGS = -I$(TOPDIR)/include
 DFLAGS = -g
 OFLAGS = -Og -fomit-frame-pointer
-CFLAGS = -Wall -Werror -static $(IFLAGS) $(DFLAGS) $(OFLAGS) -D__riscv__
+CFLAGS = -Wall -Werror -static $(IFLAGS) $(DFLAGS) $(OFLAGS) -D__riscv__ -march=${MARCH}
+LDFLAGS = -march=${MARCH} -static
 
 SRCS += $(wildcard *.c)
 OBJS += $(subst .c,.o,$(SRCS))
